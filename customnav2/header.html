@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html<?php echo $direction ?>>
+<head>
+    <?php echo $meta ?>
+    <meta name="keywords" content="moodle, <?php echo $title ?> " />
+    <title><?php echo $title ?></title>
+    <link rel="shortcut icon" href="<?php echo $CFG->themewww .'/'. current_theme() ?>/favicon.ico" />
+    <?php include("$CFG->javascript"); ?>
+</head>
+
+<body<?php
+    echo " $bodytags";
+    if ($focus) {
+        echo " onload=\"setfocus()\"";
+    }
+		  
+    ?>>
+
+<div id="page">
+
+<?php if ($home) {  // This is what gets printed on the home page only
+      if (file_exists($CFG->dirroot.'/logo.jpg')) {
+          $standardlogo = $CFG->httpswwwroot.'/logo.jpg';
+      } else if (file_exists($CFG->dirroot.'/logo.gif')) {
+          $standardlogo = $CFG->httpswwwroot.'/logo.gif';
+      } else if (file_exists($CFG->dataroot.'/1/logo.jpg')) {
+          require_once($CFG->libdir.'/filelib.php');
+          $standardlogo = get_file_url('1/logo.jpg', null, 'httpscoursefile');
+      } else if (file_exists($CFG->dataroot.'/1/logo.gif')) {
+          require_once($CFG->libdir.'/filelib.php');
+          $standardlogo = get_file_url('1/logo.gif', null, 'httpscoursefile');
+      } else {
+          $standardlogo = $CFG->httpsthemewww .'/'. current_theme().'/logo.gif';
+      }
+
+      //Accessibility: warning: ALT text will need editing if logo changes. 'headermain' is now H1.
+?>
+    <?php print_container_start(true, '', 'header-home'); ?>
+        <h1 class="headermain"><img alt="Moodle" src="<?php echo $standardlogo ?>" /></h1>
+        <div class="headermenu"><?php echo $menu ?></div>
+    <?php print_container_end(); ?>
+<?php } else if ($heading) {  // This is what gets printed on any other page with a heading
+?>
+    <?php print_container_start(true, '', 'header'); ?>
+        <h1 class="headermain"><?php echo $heading ?></h1>
+        <div class="headermenu"><?php echo $menu ?></div>
+    <?php print_container_end(); ?>
+<?php } ?>
+<?php //Accessibility: breadcrumb trail/navbar now a DIV, not a table.
+      if ($navigation) { // This is the navigation table with breadcrumbs  
+	  /////////////////////////////
+	  //начало изменения: breadcrumbs
+	  /////////////////////////////
+	  //подключаем для get_context_instance()
+	  require_once($CFG->dirroot .'/lib/accesslib.php');
+	  
+	  
+	  
+		/// If there are navigation pieces, separate them out.	
+	if (!empty($navigation['navlinks'])) 
+	{
+		$pieces = explode('<li>', $navigation['navlinks']);
+	}
+	else 
+	{
+		$pieces = array();
+	}
+		/// If its possible there is a course piece, find the short name.
+	$sname = '';
+	if (count($pieces) > 1) 
+	{
+		$sname = $pieces[1];
+		if (strpos($sname, '/course/view.php') !== false) 
+		{
+			$sname = substr($sname, 0, strpos($sname, '</a></li>'));
+		} 
+		else 
+		{
+			$sname = substr($sname, 0, strpos($sname, '</li>'));
+		}
+		$sname = trim(substr($sname, strrpos($sname, '>')+1));
+	}
+		/// If we think we have a short name, let's find the category.
+	if ($sname != '') 
+	{
+		$select = 'SELECT c.id, cc.id as catid, cc.name ';
+		$from = 'FROM '.$CFG->prefix.'course c ';
+		$join = 'INNER JOIN '.$CFG->prefix.'course_categories cc ON
+		cc.id = c.category ';
+		$where = 'WHERE c.shortname = \''.$sname.'\'';
+		$sql = $select.$from.$join.$where;
+		$catinfo = get_record_sql($sql);
+	}
+	
+
+		/// If we have category information, place it in the nav.
+	if (!empty($catinfo)) 
+	{
+		$catlink = $CFG->wwwroot.'/course/category.php?id='.$catinfo->catid;
+		//здесь мы можем просто заменить текст на наш собственный
+		$catinfo->name = 'Анализ материала';
+		$catinfo->name = iconv("CP1251", "UTF-8//IGNORE", $catinfo->name);
+		$catpiece = '<li>';
+		$catpiece .= get_separator();
+		//$catpiece .= '<a onclick="this.target=\''.$CFG->framename.'\'"href="'.$catlink.'">'.$catinfo->name.'</a>';
+		$catpiece .= $catinfo->name;
+		$catpiece .= '</li>';
+		$navigation2['navlinks'] = $pieces[0];
+		// удалим </ul> из $pieces[3]
+		$pieces[3] = str_replace('</ul>','',$pieces[3]);
+		foreach ($pieces as $i => $piece) 
+		{
+			if ($i == 0) 
+			{
+				continue;
+			} 
+			// меняем здесь численное значение для изменения позиции
+			// в которой будет отображаться наш текст в breadcrumbs
+			else if ($i == 4) 
+			{
+				$navigation2['navlinks'] .= $catpiece;
+			}
+			$navigation2['navlinks'] .= '<li>'.$piece;
+			
+		}
+		$navigation2['navlinks'] .= $catpiece;
+		$navigation2['navlinks'] .= '</ul>';
+					// добавляем нашу фразу в breadcrumbs
+					// только в страницах анализа контента
+					$pattern = '/analise/';
+                    if ( (substr_count($_SERVER['REQUEST_URI'], $pattern)) !== 0 )
+					{
+						$navigation['navlinks'] = $navigation2['navlinks'];
+					}
+	$navigationOut = $navigation['navlinks'];
+	}
+	
+	/*
+	для того, чтобы можно было вставить нашу фразу в breadcrumbs  
+	в позицию между $pieces[0]  и  $pieces[1]
+				или	$pieces[1]  и  $pieces[2]
+				или	$pieces[2]  и  $pieces[3]
+	следует заменить код в строках 101-118 
+	(от "foreach ($pieces as $i => $piece) " до "}")
+	не следующий код:
+	
+	foreach ($pieces as $i => $piece) 
+		{
+			if ($i == 0) 
+			{
+				continue;
+			} 
+			// меняем здесь численное значение для изменения позиции
+			// в которой будет отображаться наш текст в breadcrumbs
+			else if ($i == 3) 
+			{
+				$navigation['navlinks'] .= $catpiece;
+			}
+			$navigation['navlinks'] .= '<li>'.$piece;
+			
+		}
+		//$navigation['navlinks'] .= $catpiece;
+	}
+	
+	*/
+	 
+	  /////////////////////////////
+	  //конец изменения
+	  /////////////////////////////
+	 
+
+
+	  /////////////////////////////
+	  //начало изменения - пытаемся найти ID 
+	  //ресурса
+	  /////////////////////////////
+	  
+	   //находим последнее вхождение "</span>" в $pieces[3]
+	   $positionOne = strripos($pieces[3],'</span>');
+	   //увеличиваем счетчик на длину строки "</span>"
+	   $positionOne += 7;
+	   //находим вхождение "</li>" в $pieces[3]
+	   $positionTwo = strripos($pieces[3],'</li>');
+	   //берем подстроку из $pieces[3] с позиции $positionOne до позиции $positionTwo
+	   $nameOfResource = substr($pieces[3], $positionOne, ( $positionTwo - $positionOne ));
+	   //удаляем пробелы если есть
+	   $nameOfResource = trim($nameOfResource);
+	   
+	   
+	   $resource = get_record("resource", "name", $nameOfResource);
+	   $outputResource = $resource->id;
+	   
+	   
+	   
+	  /////////////////////////////
+	  //конец изменения
+	  /////////////////////////////
+	  ?>
+    <div class="navbar clearfix">
+        <div class="breadcrumb"><?php print_navigation($navigation); ?></div>
+        <div class="navbutton"><?php echo $button; ?></div>
+		<!-- Здесь необходимо внедряться -->
+        <div class="navbutton">
+                    <?php 
+                    $pattern = '/mod/resource/view.php';
+					$context = get_context_instance(CONTEXT_SYSTEM);
+                    if ( ((substr_count($_SERVER['REQUEST_URI'], $pattern)) !== 0) && (has_capability('moodle/site:doanything', $context)) )   
+                    {
+					$analiseLink = $CFG->wwwroot;
+					$analiseLink .= '/analise/common/main.php';
+					$buttonText = 'Анализировать материал';
+					$buttonText = iconv("CP1251", "UTF-8//IGNORE", $buttonText);
+					//$analiseLink = $pieces[3];
+					//$analiseLink .= $outputResource;
+					$lectionlink = $CFG->wwwroot;;
+					$lectionlink .= $_SERVER['REQUEST_URI'];
+					
+					//преобразуем в вид, пригодный для передачи
+					$direction = htmlspecialchars($direction);
+					$meta = htmlspecialchars($meta);
+					$title = htmlspecialchars($title);
+					$bodytags = htmlspecialchars($bodytags);
+					$focus = htmlspecialchars($focus);
+					$home = htmlspecialchars($home);
+					$menu = htmlspecialchars($menu);
+					$heading = htmlspecialchars($heading);
+					$navigationOut = htmlspecialchars($navigationOut);
+					$lectionlink = htmlspecialchars($lectionlink);
+					
+					
+					
+										
+                        echo("
+                        <form action=\"$analiseLink\" method=\"post\"> 
+						<input size=\"15\" value=\"$buttonText\" type=\"submit\">
+						<input name=\"analise\" value=\"yes\" type=\"hidden\">
+                        <input name=\"resourceID\" value=\"$outputResource\" type=\"hidden\">
+						<!-- ссылка на страницу с лекцией -->
+						<input name=\"lectionlink\" value=\"$lectionlink\" type=\"hidden\">
+						<!-- Пересылаем параметры для генерации аналогичной страницы -->
+						 <input name=\"header_direction\" value=\"$direction\" type=\"hidden\">
+						 <input name=\"header_meta\" value=\"$meta\" type=\"hidden\">
+						 <input name=\"header_title\" value=\"$title\" type=\"hidden\">
+						 <input name=\"header_bodytags\" value=\"$bodytags\" type=\"hidden\">
+						 <input name=\"header_focus\" value=\"$focus\" type=\"hidden\">
+						 <input name=\"header_home\" value=\"$home\" type=\"hidden\">
+						 <input name=\"header_menu\" value=\"$menu\" type=\"hidden\">
+						 <input name=\"header_heading\" value=\"$heading\" type=\"hidden\">
+						 <input name=\"header_navigation\" value=\"$navigationOut\" type=\"hidden\">
+						<!-- Завершили пересылку параметров для генерации аналогичной страницы -->                        
+                        </form>
+                        ");
+                    }
+                    ?>
+        </div>
+		<!-- Здесь необходимо внедряться -->
+    </div>
+<?php } else if ($heading) { // If no navigation, but a heading, then print a line
+?>
+        <hr />
+<?php } ?>
+<?php 
+//выполняется, только если генерируется страница 
+//с учебным материалом
+if ( ((substr_count($_SERVER['REQUEST_URI'], $pattern)) !== 0) && (has_capability('moodle/site:doanything', $context)) )
+{
+		require_once('config.php');
+		require_once($CFG->dirroot .'/lib/ddllib.php');
+		//префикс таблицы
+		$prefix = $CFG->prefix;
+		//название поля таблицы - идентификатор
+		$idfield = 'id';
+		//название таблицы
+		$tablename = 'keywords';
+		//название поля таблицы - ключевые предложения
+		$sentencesfield = 'sentences';
+		//название поля таблицы - показатель удобочитемости (индекс Флеша)
+		$fleschfield = 'flesch';
+		//название поля таблицы - уровень образования 
+		$edulevelfield = 'edulevel';
+		
+		//составляем SQL-запрос для выборки всех данных 
+		//для ресурса с идентификатором текущего материала
+		$sqlStringSelect = "SELECT words from $prefix".$tablename." WHERE $idfield=$outputResource";
+		$sqlStringSelect2 = "SELECT $sentencesfield from $prefix".$tablename." WHERE $idfield=$outputResource";
+		$sqlStringSelect3 = "SELECT $fleschfield from $prefix".$tablename." WHERE $idfield=$outputResource";
+		$sqlStringSelect4 = "SELECT $edulevelfield from $prefix".$tablename." WHERE $idfield=$outputResource";
+		//в переменной хранится статус, существует ли
+		//запись с ключевыми словами для лекции с данным идентификатором 
+		$isExistWords = record_exists_sql($sqlStringSelect);
+		//если для данной лекции есть ключевые слова в БД
+		//то выводим их перед текстом лекции
+		if( $isExistWords === true  )
+		{
+			//выбираем из БД значения из поля, содержащего ключевые слова
+			$keyWordsList = get_record_sql($sqlStringSelect,true,true);
+			//выбираем строку с данными из полученного объекта
+			$keyWordsList = $keyWordsList->words;
+			$phrase1 = 'Ключевые слова:';
+			$phrase1 = iconv("CP1251", "UTF-8//IGNORE", $phrase1);
+			echo("<h2>$phrase1</h2>");
+			//выводим ключевые слова, без последнего символа ","
+			echo substr($keyWordsList, 0, strlen($keyWordsList)-2);
+		}
+		
+		//в переменной хранится статус, существует ли
+		//запись с ключевыми предложениями для лекции с данным идентификатором 
+		$isExist = record_exists_sql($sqlStringSelect2);
+		//если для данной лекции есть ключевые слова в БД
+		//то выводим их перед текстом лекции
+		if( $isExist === true  )
+		{
+			//выбираем из БД значения из поля, содержащего ключевые слова
+			$keyWordsList = get_record_sql($sqlStringSelect2,true,true);
+			//выбираем строку с данными из полученного объекта
+			$keyWordsList = $keyWordsList->$sentencesfield;
+			$keyWordsList = preg_replace ("'[|]'i", "<br /><br />", $keyWordsList); 
+			$phrase1 = 'Ключевые предложения:';
+			$phrase1 = iconv("CP1251", "UTF-8//IGNORE", $phrase1);
+			echo("<h2>$phrase1</h2>");
+			//выводим ключевые предложения, без последнего символа 
+			echo substr($keyWordsList, 0, strlen($keyWordsList));
+		}
+		
+		//в переменной хранится статус, существует ли
+		//запись с индексом удобочитаемости для лекции с данным идентификатором 
+		$isExist = record_exists_sql($sqlStringSelect3);
+		//если для данной лекции есть ключевые слова в БД
+		//то выводим их перед текстом лекции
+		if( $isExist === true  )
+		{
+			//выбираем из БД значения из поля, содержащего ключевые слова
+			$keyWordsList = get_record_sql($sqlStringSelect3,true,true);
+			//выбираем строку с данными из полученного объекта
+			$keyWordsList = $keyWordsList->$fleschfield; 
+			$phrase1 = '<h2> Индекс удобочитаемости Флеша:  ';
+			$phrase1 = iconv("CP1251", "UTF-8//IGNORE", $phrase1);
+			echo("$phrase1");
+			//выводим ключевые предложения, без последнего символа 
+			echo substr($keyWordsList, 0, strlen($keyWordsList));
+			echo("</h2>");
+		}
+		
+		//в переменной хранится статус, существует ли
+		//запись с уровнем образования для лекции с данным идентификатором 
+		$isExist = record_exists_sql($sqlStringSelect4);
+		//если для данной лекции есть ключевые слова в БД
+		//то выводим их перед текстом лекции
+		if( $isExist === true  )
+		{
+			//выбираем из БД значения из поля, содержащего ключевые слова
+			$keyWordsList = get_record_sql($sqlStringSelect4,true,true);
+			//выбираем строку с данными из полученного объекта
+			$keyWordsList = $keyWordsList->$edulevelfield; 
+			$phrase1 = '<h2> Уровень образования:  ';
+			$phrase1 = iconv("CP1251", "UTF-8//IGNORE", $phrase1);
+			echo("$phrase1");
+			//выводим ключевые предложения, без последнего символа 
+			echo substr($keyWordsList, 0, strlen($keyWordsList));
+			echo("</h2>");
+		}
+}
+		?>
+    <!-- END OF HEADER -->
+    <?php print_container_start(false, '', 'content'); ?>
