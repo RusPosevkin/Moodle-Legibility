@@ -1,0 +1,1148 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0048)http://phpmorphy.sourceforge.net/dokuwiki/manual -->
+<HTML dir=ltr lang=ru xml:lang="ru" 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>manual [phpMorphy home]</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 8.00.6001.19019">
+<META name=robots content=index,follow>
+<META name=date content=2010-01-14T12:08:20+0000>
+<META name=keywords content=manual><LINK title="phpMorphy home" rel=search 
+type=application/opensearchdescription+xml 
+href="/dokuwiki/lib/exe/opensearch.php"><LINK rel=start href="/dokuwiki/"><LINK 
+title="Все страницы" rel=contents href="/dokuwiki/manual?do=index"><LINK 
+title="Recent Changes" rel=alternate type=application/rss+xml 
+href="/dokuwiki/feed.php"><LINK title="Current Namespace" rel=alternate 
+type=application/rss+xml href="/dokuwiki/feed.php?mode=list&amp;ns="><LINK 
+title="Plain HTML" rel=alternate type=text/html 
+href="/dokuwiki/_export/xhtml/manual"><LINK rel=stylesheet type=text/css 
+href="manual%20[phpMorphy%20home]_files/css.css" media=all><LINK rel=stylesheet 
+type=text/css href="manual%20[phpMorphy%20home]_files/css(1).css" 
+media=screen><LINK rel=stylesheet type=text/css 
+href="manual%20[phpMorphy%20home]_files/css(2).css" media=print>
+<SCRIPT type=text/javascript charset=utf-8 
+src="manual%20[phpMorphy%20home]_files/js.php"></SCRIPT>
+
+<SCRIPT type=text/javascript charset=utf-8 
+src="manual%20[phpMorphy%20home]_files/tableedit.js"></SCRIPT>
+<LINK rel="shortcut icon" 
+href="/dokuwiki/lib/tpl/phpmorphy/images/favicon.ico"></HEAD>
+<BODY>
+<DIV class=dokuwiki>
+<DIV class=stylehead>
+<DIV class=header>
+<DIV class=pagename>[[<A title="Ссылки сюда" 
+href="http://phpmorphy.sourceforge.net/dokuwiki/manual?do=backlink">manual</A>]] 
+</DIV>
+<DIV class=logo><A accessKey=h id=dokuwiki__top title=[H] 
+href="http://phpmorphy.sourceforge.net/dokuwiki/" name=dokuwiki__top>phpMorphy 
+home</A> </DIV>
+<DIV class=clearer></DIV></DIV>
+<DIV id=bar__top class=bar>
+<DIV id=bar__topleft class=bar-left></DIV>
+<DIV id=bar__topright class=bar-right>
+<FORM id=dw__search class=search accept-charset=utf-8 action=/dokuwiki/>
+<DIV class=no><INPUT value=search type=hidden name=do><INPUT accessKey=f 
+id=qsearch__in class=edit title=[F] name=id><INPUT class=button title=Поиск value=Поиск type=submit>
+<DIV id=qsearch__out class="ajax_qsearch JSpopup"></DIV></DIV></FORM>&nbsp; 
+</DIV>
+<DIV class=clearer></DIV></DIV>
+<DIV class=breadcrumbs><SPAN class=bchead>Вы посетили:</SPAN> <SPAN 
+class=bcsep>»</SPAN> <SPAN class=curid><A class=breadcrumbs title=manual 
+href="http://phpmorphy.sourceforge.net/dokuwiki/manual">manual</A></SPAN> 
+</DIV></DIV>
+<DIV class=page><!-- wikipage start --><!-- TOC START -->
+<DIV class=toc>
+<DIV id=toc__header class="tocheader toctoggle">Содержание</DIV>
+<DIV id=toc__inside>
+<UL class=toc>
+  <LI class=level1>
+  <DIV class=li><SPAN class=li><A class=toc 
+  href="http://phpmorphy.sourceforge.net/dokuwiki/manual#использование_phpmorphy">Использование 
+  phpMorphy</A></SPAN></DIV>
+  <UL class=toc>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="http://phpmorphy.sourceforge.net/dokuwiki/manual#словари">Словари</A></SPAN></DIV>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="http://phpmorphy.sourceforge.net/dokuwiki/manual#установка">Установка</A></SPAN></DIV>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="http://phpmorphy.sourceforge.net/dokuwiki/manual#инициализация">Инициализация</A></SPAN></DIV>
+    <UL class=toc>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="http://phpmorphy.sourceforge.net/dokuwiki/manual#опции">Опции</A></SPAN></DIV></LI></UL>
+    <LI class=level2>
+    <DIV class=li><SPAN class=li><A class=toc 
+    href="http://phpmorphy.sourceforge.net/dokuwiki/manual#методы">Методы</A></SPAN></DIV>
+    <UL class=toc>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="http://phpmorphy.sourceforge.net/dokuwiki/manual#сервисные">Сервисные</A></SPAN></DIV>
+      <LI class=level3>
+      <DIV class=li><SPAN class=li><A class=toc 
+      href="http://phpmorphy.sourceforge.net/dokuwiki/manual#основные">Основные</A></SPAN></DIV></LI></UL></LI></UL></LI></UL></DIV></DIV><!-- TOC END -->
+<H1><A id=использование_phpmorphy name=использование_phpmorphy>Использование 
+phpMorphy</A></H1>
+<DIV class=level1></DIV>
+<H2><A id=словари name=словари>Словари</A></H2>
+<DIV class=level2>
+<P>phpMorphy использует для работы словарь. Поддерживаются словари проекта AOT 
+(<A class=urlextern title=http://aot.ru href="http://aot.ru/" 
+rel=nofollow>http://aot.ru/</A>) и myspell (в myspell словарях отсутствует 
+грамматическая информация, потому часть функций будет недоступна). Словари 
+представлены в двух видах: в исходном и бинарном. Исходный словарь представлен в 
+виде xml файла и содержит </P>
+<UL>
+  <LI class=level1>
+  <DIV class=li>Основы слов</DIV>
+  <LI class=level1>
+  <DIV class=li>Правила изменения</DIV>
+  <LI class=level1>
+  <DIV class=li>Грамматическая информация</DIV></LI></UL>
+<P>Более подробно структура словаря описана в <A class=urlextern 
+title=http://www.aot.ru/docs/sokirko/Dialog2004.htm 
+href="http://www.aot.ru/docs/sokirko/Dialog2004.htm" 
+rel=nofollow>http://www.aot.ru/docs/sokirko/Dialog2004.htm</A>, в phpMorphy 
+словарь в исходной форме представлен аналогично. Имеется возможность 
+преобразовать myspell словарь в исходную форму словаря для phpMorphy. </P>
+<P>Для работы библиотеки требуется скомпилировать бинарный словарь. При 
+компиляции используется словарь в исходном виде. Бинарный словарь обладает 
+следующими особенностями: </P>
+<UL>
+  <LI class=level1>
+  <DIV class=li>бинарно совместим между различными платформами</DIV>
+  <LI class=level1>
+  <DIV class=li>все данные представлены в заданной кодировке, в верхнем (по 
+  умолчанию) или нижнем регистре.</DIV></LI></UL>
+<P>Последний пункт позволяет не тратить время на преобразование кодировки и 
+регистра в реальном времени, а сделать это один раз на этапе компиляции. 
+Разработчик предоставить данные в кодировке и регистре совпадающим с кодировкой 
+и регистром в словаре. </P>
+<P>Физически словарь представлен в виде нескольких файлов: </P>
+<UL>
+  <LI class=level1>
+  <DIV class=li>Key ⇒ value хранилище всех словоформ. Хранилище - использует 
+  модель минимального детерминированного конечного автомата (DAWG), позволяет 
+  искать слово за линейное от длины слова время O(N), N – длина слова. 
+  Разработано по мотивам How to Squeeze a Lexicon by Marcin Ciura Sebastian , 
+  Sebastian Deorowicz. Располагается в файле common_aut.ru</DIV>
+  <LI class=level1>
+  <DIV class=li>Хранилище грамматической информации, таблицы окончаний, граммем 
+  (файл morph_data.bin)</DIV>
+  <LI class=level1>
+  <DIV class=li>Хранилище окончаний для предсказания (файл predict_aut.bin) 
+  используется структура похожая на описанную в п1.</DIV>
+  <LI class=level1>
+  <DIV class=li>Вспомогательные файлы (кэши для php версии, опции и 
+  т.п.)</DIV></LI></UL>
+<P>Именование файлов словаря сделано следующим образом: ИМЯ_ФАЙЛА.ЯЗЫК.bin, где 
+ЯЗЫК – условный код языка, в виде ISO3166 код страны и ISO639 код языка т.е. 
+ru_ru, en_en и т.п. Данный метод позволяет размещать в одном каталоге словари 
+для нескольких языков. К примеру, файлы для русского словаря: </P><PRE class=code>common_aut.ru_ru.bin
+gramtab.ru_ru.bin
+gramtab_txt.ru_ru.bin
+morph_data.ru_ru.bin
+morph_data_ancodes_cache.ru_ru.bin
+morph_data_ancodes_map.ru_ru.bin
+morph_data_header_cache.ru_ru.bin
+predict_aut.ru_ru.bin
+options.ru_ru.ini
+</PRE>
+<P>Если требуется иметь словари для одного языка, но в разных кодировках, 
+рекомендую создать следующую иерархию директорий: </P><PRE class=code>dicts\
+    utf-8\
+        словари в utf-8 кодировке
+    windows\
+        словари в windows кодировке: windows-1251 (русский), windows-1250 (английский) и т.п.
+    iso-8859\
+        словари в семействе iso-8859 кодировок
+</PRE>
+<P>Стоит заметить, что словарь не загружается в память полностью. Загрузка 
+происходит по мере необходимости, так например, если используется только 
+лемматизация - будет загружен только один файл - common_aut.ru_ru.bin. 
+</P></DIV>
+<H2><A id=установка name=установка>Установка</A></H2>
+<DIV class=level2>
+<P>Для работы Вам потребуется </P>
+<UL>
+  <LI class=level1>
+  <DIV class=li>Исходный код библиотеки.</DIV>
+  <LI class=level1>
+  <DIV class=li>Один или несколько словарей в бинарном виде. </DIV></LI></UL>
+<OL>
+  <LI class=level1>
+  <DIV class=li>Скачайте последнюю версию библиотеки. </DIV>
+  <LI class=level1>
+  <DIV class=li>Распакуйте архив (к примеру, в каталог c:\php\libs\phpmorphy). 
+  Рекомендуется разместить код бибилотеки в директории недоступной web серверу. 
+  Для Apache к примеру, выше DocumentRoot.</DIV>
+  <LI class=level1>
+  <DIV class=li>Скачайте необходимые словари. Распакуйте файл со словарями 
+  (используем c:\php\libs\phpmorphy\dicts). В c:\php\libs\phpmorphy\dicts должны 
+  находится файлы словаря т.е. common_aut.*.bin, predict_aut.*.bin и 
+  т.п.</DIV></LI></OL></DIV>
+<H2><A id=инициализация name=инициализация>Инициализация</A></H2>
+<DIV class=level2><PRE class="code php"><SPAN class=co1>// Подключите файл common.php. phpmorphy-0.3.2 - для версии 0.3.2,</SPAN>
+<SPAN class=co1>// если используется иная версия исправьте код.</SPAN>
+<SPAN class=kw1>require_once</SPAN><SPAN class=br0>(</SPAN> <SPAN class=st_h>'c:/php/libs/phpmorphy/phpmorphy-0.3.2/src/common.php'</SPAN><SPAN class=br0>)</SPAN>;
+&nbsp;
+<SPAN class=co1>// Укажите путь к каталогу со словарями</SPAN>
+<SPAN class=re0>$dir</SPAN> <SPAN class=sy0>=</SPAN> <SPAN class=st_h>'c:/php/libs/phpmorphy/dicts'</SPAN>;
+&nbsp;
+<SPAN class=co1>// Укажите, для какого языка будем использовать словарь.</SPAN>
+<SPAN class=co1>// Язык указывается как ISO3166 код страны и ISO639 код языка, </SPAN>
+<SPAN class=co1>// разделенные символом подчеркивания (ru_RU, uk_UA, en_EN, de_DE и т.п.)</SPAN>
+&nbsp;
+<SPAN class=re0>$lang</SPAN> <SPAN class=sy0>=</SPAN> <SPAN class=st_h>'ru_RU'</SPAN>;
+&nbsp;
+<SPAN class=co1>// Укажите опции</SPAN>
+<SPAN class=co1>// Список поддерживаемых опций см. ниже</SPAN>
+<SPAN class=re0>$opts</SPAN> <SPAN class=sy0>=</SPAN> <A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN>
+    <SPAN class=st_h>'storage'</SPAN> <SPAN class=sy0>=&gt;</SPAN> PHPMORPHY_STORAGE_FILE<SPAN class=sy0>,</SPAN>
+<SPAN class=br0>)</SPAN>;
+&nbsp;
+<SPAN class=co1>// создаем экземпляр класса phpMorphy</SPAN>
+<SPAN class=co1>// обратите внимание: все функции phpMorphy являются throwable т.е. </SPAN>
+<SPAN class=co1>// могут возбуждать исключения типа phpMorphy_Exception (конструктор тоже)</SPAN>
+try <SPAN class=br0>{</SPAN>
+    <SPAN class=re0>$morphy</SPAN> <SPAN class=sy0>=</SPAN> <SPAN class=kw2>new</SPAN> phpMorphy<SPAN class=br0>(</SPAN><SPAN class=re0>$dir</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$lang</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$opts</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=br0>}</SPAN> catch<SPAN class=br0>(</SPAN>phpMorphy_Exception <SPAN class=re0>$e</SPAN><SPAN class=br0>)</SPAN> <SPAN class=br0>{</SPAN>
+    <A href="http://www.php.net/die"><SPAN class=kw3>die</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>'Error occured while creating phpMorphy instance: '</SPAN> <SPAN class=sy0>.</SPAN> <SPAN class=re0>$e</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getMessage</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=br0>}</SPAN>
+&nbsp;
+<SPAN class=co1>// далее под $morphy мы подразумеваем экземпляр класса phpMorphy</SPAN></PRE></DIV>
+<H3><A id=опции name=опции>Опции</A></H3>
+<DIV class=level3>
+<P>Опции используемые при инициализации. </P></DIV>
+<H4><A id=storage name=storage>storage</A></H4>
+<DIV class=level4>
+<P>Указывает способ обращения к файлам словаря. Для PHPMORPHY_STORAGE_SHM 
+требуется наличие расширения shmop. </P>
+<P>Значение по умолчанию: <STRONG>PHPMORPHY_STORAGE_FILE</STRONG> </P>
+<P>Допустимые значения: </P>
+<UL>
+  <LI class=level1>
+  <DIV class=li><STRONG>PHPMORPHY_STORAGE_FILE</STRONG> - использует файловые 
+  операции. Потребляется небольшое количество памяти. Самый медленный способ, 
+  однако, работает в любом окружении</DIV>
+  <LI class=level1>
+  <DIV class=li><STRONG>PHPMORPHY_STORAGE_MEM</STRONG> - загружает словари в 
+  память. Плюсы этого способа в том, что обеспечивается самый быстрый способ 
+  доступа и работа в любом окружении. Однако имеется один существенный минус – 
+  словарь загружается для каждого экземпляра класса phpMorphy. Что приводит к 
+  очень медленной инициализации phpMorphy и большому потреблению памяти (т.к. 
+  для каждого запроса в память загружается порядка 10Mb, соответственно при 10 
+  одновременных запросах потребуется около 100Mb памяти. Потому данный способ 
+  может быть полезен только для CLI скриптов. Обратите внимание на директиву 
+  memory_limit в <ACRONYM title="Hypertext Preprocessor">PHP</ACRONYM>, слишком 
+  низкое значение может вызвать ошибку «Fatal error: Allowed memory size of xxx 
+  bytes exhausted (tried to allocate xxx bytes)».</DIV>
+  <LI class=level1>
+  <DIV class=li><STRONG>PHPMORPHY_STORAGE_SHM</STRONG> - скорость сравнима с 
+  PHPMORPHY_STORAGE_MEM, однако словари загружаются в разделяемую память. Это 
+  предпочтительный способ, однако необходимо наличие shmop расширения, см. вывод 
+  php –m | grep shmop. phpMorphy загружает все словари в один сегмент 
+  разделяемой памяти (см опцию shm), поэтому необходимо установить размер 
+  сегмента таким образом, чтобы все словари с которыми предполагается работать 
+  умещались в данный сегмент (иначе возможны ошибки при иницализации: «Can`t 
+  find free space for XXX block»)</DIV></LI></UL></DIV>
+<H4><A id=predict_by_suffix name=predict_by_suffix>predict_by_suffix</A></H4>
+<DIV class=level4>
+<P>Использовать предсказание путем отсечения префикса. Для распознавания слов, 
+образованных от известных путём прибавления префиксов (популярный – 
+мегапопулярный и т.п.) </P>
+<P>Значение по умолчанию: TRUE </P>
+<P>Допустимые значения: TRUE/FALSE </P></DIV>
+<H4><A id=predict_by_db name=predict_by_db>predict_by_db</A></H4>
+<DIV class=level4>
+<P>Использовать предсказание по окончанию </P>
+<P>Значение по умолчанию: TRUE </P>
+<P>Допустимые значения: TRUE/FALSE </P></DIV>
+<H4><A id=graminfo_as_text name=graminfo_as_text>graminfo_as_text</A></H4>
+<DIV class=level4>
+<P>использовать текстовое представление грамматической информации, иначе 
+используется значение констант из phpmorphy/src/gramtab_consts.php </P>
+<P>Значение по умолчанию: TRUE </P>
+<P>Допустимые значения: TRUE/FALSE </P></DIV>
+<H4><A id=use_ancodes_cache name=use_ancodes_cache>use_ancodes_cache</A></H4>
+<DIV class=level4>
+<P>Позволяет ускорить процесс получения грамматической информации (увеличивает 
+потребление памяти во время исполнения и замедляет процесс инициализации) </P>
+<P>Значение по умолчанию: FALSE </P>
+<P>Допустимые значения: TRUE/FALSE </P></DIV>
+<H4><A id=resolve_ancodes name=resolve_ancodes>resolve_ancodes</A></H4>
+<DIV class=level4>
+<P>Устанавливает способ преобразования анкодов. </P>
+<P>Значение по умолчанию: phpMorphy::RESOLVE_ANCODES_AS_TEXT </P>
+<P>Допустимые значения: </P>
+<UL>
+  <LI class=level1>
+  <DIV class=li>phpMorphy::RESOLVE_ANCODES_AS_INT - Используются числовые 
+  идентификаторы анкодов. </DIV>
+  <LI class=level1>
+  <DIV class=li>phpMorphy::RESOLVE_ANCODES_AS_DIALING - Анкоды преобразуются к 
+  виду используемому в словарях AOT. (двухбуквенное обозначение) |</DIV>
+  <LI class=level1>
+  <DIV class=li>phpMorphy::RESOLVE_ANCODES_AS_TEXT - Развертывать анкод в 
+  текстовое представление. Формат - ЧАСТЬ_РЕЧИ граммема1, граммема2, … 
+  |</DIV></LI></UL></DIV>
+<H4><A id=shm name=shm>shm</A></H4>
+<DIV class=level4>
+<P>Массив настроек разделяемой памяти(используется только для 
+PHPMORPHY_STORAGE_SHM). </P><PRE class="code php">shm <SPAN class=sy0>=&gt;</SPAN> <A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN>
+         <SPAN class=co1>// размер сегмента разделяемой памяти в байтах.</SPAN>
+         <SPAN class=co1>// Предпочтительное значение: суммарный объем требуемых словарей + 10%.</SPAN>
+	<SPAN class=st_h>'segment_size'</SPAN> <SPAN class=sy0>=&gt;</SPAN> int<SPAN class=sy0>,</SPAN> 
+        <SPAN class=st_h>'semaphore_key'</SPAN> <SPAN class=sy0>=&gt;</SPAN> int<SPAN class=sy0>,</SPAN> <SPAN class=co1>// ключ для сегмента</SPAN>
+	<SPAN class=st_h>'segment_id'</SPAN> <SPAN class=sy0>=&gt;</SPAN> int<SPAN class=sy0>,</SPAN> <SPAN class=co1>// ключ для семафора</SPAN>
+	<SPAN class=st_h>'with_mtime'</SPAN> <SPAN class=sy0>=&gt;</SPAN> bool<SPAN class=sy0>,</SPAN> <SPAN class=co1>// автоматически перегружать изменившиеся словари</SPAN>
+	<SPAN class=st_h>'no_lock'</SPAN> <SPAN class=sy0>=&gt;</SPAN> bool<SPAN class=sy0>,</SPAN> <SPAN class=co1>// не использовать блокировку </SPAN>
+<SPAN class=br0>)</SPAN>;</PRE>
+<P>Размер сегмента можно указать глобально. Для этого необходимо ДО созданиния 
+экземпляра phpMorphy объявить константу PHPMORPHY_SHM_SEGMENT_SIZE. т.е. </P><PRE class="code php"><SPAN class=kw1>require_once</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'.../common.php'</SPAN><SPAN class=br0>)</SPAN>;
+&nbsp;
+<SPAN class=sy0>...</SPAN>
+&nbsp;
+<A href="http://www.php.net/define"><SPAN class=kw3>define</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>'PHPMORPHY_SHM_SEGMENT_SIZE'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=nu0>32</SPAN> <SPAN class=sy0>*</SPAN> <SPAN class=nu0>1024</SPAN> <SPAN class=sy0>*</SPAN> <SPAN class=nu0>1024</SPAN><SPAN class=br0>)</SPAN>; 
+&nbsp;
+<SPAN class=sy0>...</SPAN>
+&nbsp;
+<SPAN class=re0>$morphy</SPAN> <SPAN class=sy0>=</SPAN> <SPAN class=kw2>new</SPAN> phpMorphy<SPAN class=br0>(</SPAN><SPAN class=sy0>...</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=sy0>...</SPAN></PRE>
+<P>по умолчанию размер сегмента равен 24Mb </P></DIV>
+<H2><A id=методы name=методы>Методы</A></H2>
+<DIV class=level2></DIV>
+<H3><A id=сервисные name=сервисные>Сервисные</A></H3>
+<DIV class=level3></DIV>
+<H4><A id=string_getencoding name=string_getencoding>string 
+getEncoding()</A></H4>
+<DIV class=level4>
+<P>Возвращает кодировку загруженного словаря. </P><PRE class="code php"><A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getEncoding</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=co1>// windows-1251 или utf-8 и т.п., в зависимость от словаря.</SPAN></PRE></DIV>
+<H4><A id=string_getlocale name=string_getlocale>string getLocale()</A></H4>
+<DIV class=level4>
+<P>Возвращает код языка. В формате ISO3166 код страны, символ '_', ISO639 код 
+языка. </P><PRE class="code php"><A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getLocale</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=co1>// ru_RU или en_EN или uk_UA, в зависимости от словаря</SPAN></PRE></DIV>
+<H4><A id=phpmorphy_shm_cache_getshmcache 
+name=phpmorphy_shm_cache_getshmcache>phpMorphy_Shm_Cache getShmCache()</A></H4>
+<DIV class=level4>
+<P>Возвращает экземпляр phpMorphy_Shm_Cache класса. Иногда может потребоваться 
+освободить сегмент разделяемой памяти (например при обновлении словаря, или если 
+требуется изменить размер сегмента при возникновении ошибки: 'Can`t find free 
+space for XXX block' ). Следующий код позволяет это сделать </P><PRE class="code php"><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getShmCache</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>free</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN></PRE>
+<P>В связи с особенностями разделяемой памяти, освобождение происходит не сразу, 
+а после того как будут закрыты все открытые дескрипторы для данного сегмента. 
+</P>
+<P>Посмотреть список загруженных файлов можно при помощи </P><PRE class="code php"><A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getShmCache</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getFilesList</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;</PRE>
+<P>Удалить загруженный файл(не путать с удалением сегмента) </P><PRE class="code php"><SPAN class=co1>// $filePath путь к файлу, можно посмотреть при помощи getFilesList()</SPAN>
+<SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getShmCache</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>delete</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$filePath</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=co1>// $morphy-&gt;getShmCache()-&gt;clear(); // удалить все файлы</SPAN></PRE></DIV>
+<H4><A id=phpmorphy_morphier_interface_getcommonmorphier 
+name=phpmorphy_morphier_interface_getcommonmorphier>phpMorphy_Morphier_Interface 
+getCommonMorphier()</A></H4>
+<DIV class=level4>
+<P>Возвращает экземпляр класса реализующий phpMorphy_Morphier_Interface 
+интерфейс. Используется только поиск по словарю. </P></DIV>
+<H4><A id=phpmorphy_morphier_interface_getpredictbysuffixmorphier 
+name=phpmorphy_morphier_interface_getpredictbysuffixmorphier>phpMorphy_Morphier_Interface 
+getPredictBySuffixMorphier()</A></H4>
+<DIV class=level4>
+<P>Возвращает экземпляр класса реализующий phpMorphy_Morphier_Interface 
+интерфейс. Используется только предсказание путем отсечения префикса. </P></DIV>
+<H4><A id=phpmorphy_morphier_interface_getpredictbydatabasemorphier 
+name=phpmorphy_morphier_interface_getpredictbydatabasemorphier>phpMorphy_Morphier_Interface 
+getPredictByDatabaseMorphier()</A></H4>
+<DIV class=level4>
+<P>Возвращает экземпляр класса реализующий phpMorphy_Morphier_Interface 
+интерфейс. Используется только предсказание по окончанию. </P></DIV>
+<H4><A id=phpmorphy_morphier_interface_getbulkmorphier 
+name=phpmorphy_morphier_interface_getbulkmorphier>phpMorphy_Morphier_Interface 
+getBulkMorphier()</A></H4>
+<DIV class=level4>
+<P>Возвращает экземпляр phpMorphy_Morphier_Bulk класса. Используется пакетный 
+режим обработки слов, только поиск по словарю. </P></DIV>
+<H3><A id=основные name=основные>Основные</A></H3>
+<DIV class=level3></DIV>
+<H4><A id=bool_phpmorphyislastpredicted name=bool_phpmorphyislastpredicted>bool 
+phpMorphy:: isLastPredicted()</A></H4>
+<DIV class=level4>
+<P>Функция возвращает TRUE если при анализе последнего слова выяснилось, что 
+слово отсутствует в словаре и было предсказано. FALSE в ином случае. Функция не 
+работает для bulk режима. </P><PRE class="code php"><SPAN class=co1>// слова ГЛОКАЯ нет в словаре, слово ТЕСТ есть в словаре</SPAN>
+<A href="http://www.php.net/print_r"><SPAN class=kw3>print_r</SPAN></A> <SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ГЛОКАЯ'</SPAN><SPAN class=sy0>,</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>NORMAL</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// ГЛОКАЯ</SPAN>
+<A href="http://www.php.net/print_r"><SPAN class=kw3>print_r</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>isLastPredicted</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// TRUE</SPAN>
+<SPAN class=co1>// слово было предсказано</SPAN>
+&nbsp;
+<A href="http://www.php.net/print_r"><SPAN class=kw3>print_r</SPAN></A> <SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ГЛОКАЯ'</SPAN><SPAN class=sy0>,</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>IGNORE_PREDICT</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// FALSE </SPAN>
+<A href="http://www.php.net/print_r"><SPAN class=kw3>print_r</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>isLastPredicted</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// FALSE</SPAN>
+<SPAN class=co1>// если предыдущий вызов (lemmatize к примеру) вернул FALSE isLastPredicted() возвращает FALSE</SPAN>
+&nbsp;
+<SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=sy0>,</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>NORMAL</SPAN><SPAN class=br0>)</SPAN>;
+<A href="http://www.php.net/print_r"><SPAN class=kw3>print_r</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>isLastPredicted</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// FALSE</SPAN>
+<SPAN class=co1>// слово ТЕСТ было найдено в словаре</SPAN>
+&nbsp;
+<SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=sy0>,</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>ONLY_PREDICT</SPAN><SPAN class=br0>)</SPAN>;
+<A href="http://www.php.net/print_r"><SPAN class=kw3>print_r</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>isLastPredicted</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// TRUE</SPAN>
+<SPAN class=co1>// был использован режим ONLY_PREDICT соответственно ТЕСТ было предсказано</SPAN></PRE></DIV>
+<H4><A id=mixed_phpmorphygetlastpredictiontype 
+name=mixed_phpmorphygetlastpredictiontype>mixed 
+phpMorphy::getLastPredictionType()</A></H4>
+<DIV class=level4>
+<P>Функция возвращает константу определяющую, каким способом было предсказано 
+последнее слово. Функция не работает для bulk режима. phpMorphy::PREDICT_BY_NONE 
+– предсказание не использовано. Возможны следующие случаи: 1) Слово было найдено 
+в словаре, предсказание не использовалось. 2) Слово отсутствует в словаре, 
+предсказать не удалось (к примеру, метод $morphy→lemmatize($word) возвратил 
+FALSE) phpMorphy::PREDICT_BY_SUFFIX – слово было предсказано по окончанию. 
+phpMorphy::PREDICT_BY_DB – слово было предсказано по базе окончаний. </P><PRE class="code php"><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=sy0>,</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>NORMAL</SPAN><SPAN class=br0>)</SPAN>;
+<A href="http://www.php.net/print_r"><SPAN class=kw3>print_r</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN> <SPAN class=me1>getLastPredictionType</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN> <SPAN class=sy0>==</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>PREDICT_BY_NONE</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// TRUE</SPAN>
+<SPAN class=co1>// слово ТЕСТ есть в словаре, предсказание не использовалось.</SPAN>
+&nbsp;
+<SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ГЛОКАЯ'</SPAN><SPAN class=sy0>,</SPAN> phpMorphy<SPAN class=sy0>::</SPAN> <SPAN class=me2>IGNORE_PREDICT</SPAN><SPAN class=br0>)</SPAN>;
+<A href="http://www.php.net/print_r"><SPAN class=kw3>print_r</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN> <SPAN class=me1>getLastPredictionType</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN> <SPAN class=sy0>==</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>PREDICT_BY_NONE</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// TRUE</SPAN>
+<SPAN class=co1>// слово ГЛОКАЯ отсутствует в  словаре, предсказать не удалось (lemmatize вернул FALSE).</SPAN>
+&nbsp;
+<SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТДРАЙВ'</SPAN><SPAN class=sy0>,</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>ONLY_PREDICT</SPAN><SPAN class=br0>)</SPAN>;
+<A href="http://www.php.net/print_r"><SPAN class=kw3>print_r</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN> <SPAN class=me1>getLastPredictionType</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN> <SPAN class=sy0>==</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>PREDICT_BY_SUFFIX</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// TRUE</SPAN>
+&nbsp;
+<SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ПОДФИГАЧИТЬ'</SPAN><SPAN class=sy0>,</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>ONLY_PREDICT</SPAN><SPAN class=br0>)</SPAN>;
+<A href="http://www.php.net/print_r"><SPAN class=kw3>print_r</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN> <SPAN class=me1>getLastPredictionType</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN> <SPAN class=sy0>==</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>PREDICT_BY_DB</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// TRUE</SPAN>
+&nbsp;</PRE>
+<P>Следующие методы имеют схожую сигнатуру. </P></DIV>
+<H4><A id=mixed_phpmorphyxxx_word_type_selfnormal 
+name=mixed_phpmorphyxxx_word_type_selfnormal>mixed phpMorphy::xxx($word, $type = 
+self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>где xxx – findWord, lemmatize, getBaseForm, getPseudoRoot, getPartOfSpeech, 
+getAllFormsWithGramInfo и т.д. $word – строка или массив. </P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>Строка – слово для анализа. Если слово не было найдено в словаре 
+  или предсказано, функция возвращает FALSE.</DIV>
+  <LI class=level1>
+  <DIV class=li>Массив – массив слов для анализа. Это так называемый bulk режим, 
+  благодаря некоторым оптимизациям внутри кода, позволяет увеличить скорость 
+  обработки слов на ~50%. В данном режиме функция возвращает массив, в качестве 
+  ключа выступает исходное слово, соответствующее значение – результат. 
+  </DIV></LI></OL><PRE class="code php"><SPAN class=re0>$words</SPAN> <SPAN class=sy0>=</SPAN> <A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN>
+	<SPAN class=st_h>'СОБАКА'</SPAN><SPAN class=sy0>,</SPAN>
+	<SPAN class=st_h>'КОШКА'</SPAN><SPAN class=sy0>,</SPAN>
+<SPAN class=br0>)</SPAN>;
+&nbsp;
+<SPAN class=re0>$result</SPAN> <SPAN class=sy0>=</SPAN> <A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=kw1>foreach</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$words</SPAN> <SPAN class=kw1>as</SPAN> <SPAN class=re0>$word</SPAN><SPAN class=br0>)</SPAN> <SPAN class=br0>{</SPAN>
+	<SPAN class=re0>$result</SPAN><SPAN class=br0>[</SPAN><SPAN class=re0>$word</SPAN><SPAN class=br0>]</SPAN> <SPAN class=sy0>=</SPAN> <SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$word</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=br0>}</SPAN>
+&nbsp;
+<SPAN class=co1>// $result можно получить на 50% быстрее с помощью $result = $morphy-&gt;lemmatize($words) в bulk режиме</SPAN></PRE>
+<P>Следует заметить, что phpMorphy::getLastPredictionType() и phpMorphy:: 
+isLastPredicted() не работают в bulk режиме. $type – указывает порядок обработки 
+для конкретного слова (списка слов в bulk режиме). Может принимать значения: 
+</P>
+<OL>
+  <LI class=level1>
+  <DIV class=li>phpMorphy::NORMAL – значение по умолчанию, в этом режиме 
+  обработка слова производится в следующем порядке:</DIV>
+  <OL>
+    <LI class=level2>
+    <DIV class=li>идет поиск в словаре</DIV>
+    <LI class=level2>
+    <DIV class=li>если в словаре слово не найдено, то пытаемся предсказать в 
+    соответствии с настройками предсказания при инициализации 
+    (predict_by_suffix, predict_by_db опции).</DIV>
+    <LI class=level2>
+    <DIV class=li>если предсказать не удалось, возвращаем FALSE</DIV></LI></OL>
+  <LI class=level1>
+  <DIV class=li>phpMorphy::IGNORE_PREDICT – отключает предсказание т.е. поиск 
+  слова идет только по словарю. Если слова в словаре нет, возвращает FALSE</DIV>
+  <LI class=level1>
+  <DIV class=li>phpMorphy::ONLY_PREDICT – отключает поиск по словарю, 
+  используется только предсказание, в соответствии с настройками предсказания 
+  при инициализации. Если предсказать не удалось (к примеру, predict_by_suffix и 
+  predict_by_db установлены в false) возвращаем FALSE.</DIV></LI></OL>
+<P>Далее будут описаны только уникальные свойства для каждого метода, на основе 
+одиночного режима (для bulk результат помещается в массив). </P></DIV>
+<H4><A id=mixed_phpmorphyfindword_word_type_selfnormal 
+name=mixed_phpmorphyfindword_word_type_selfnormal>mixed 
+phpMorphy::findWord($word, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Производит анализ слова, возвращает коллекцию типа 
+phpMorphy_WordDescriptor_Collection. Используется для детального анализа слов, 
+</P><PRE class="code php"><SPAN class=re0>$word</SPAN> <SPAN class=sy0>=</SPAN> <SPAN class=st_h>'ДУША'</SPAN>;
+<SPAN class=kw1>if</SPAN><SPAN class=br0>(</SPAN><SPAN class=kw2>false</SPAN> <SPAN class=sy0>===</SPAN> <SPAN class=br0>(</SPAN><SPAN class=re0>$paradigms</SPAN> <SPAN class=sy0>=</SPAN> <SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>findWord</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$word</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN> <SPAN class=br0>{</SPAN>
+    <A href="http://www.php.net/die"><SPAN class=kw3>die</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>'Can`t find word'</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=br0>}</SPAN>
+&nbsp;
+<SPAN class=co1>// получить только существительные можно при помощи</SPAN>
+<SPAN class=kw1>foreach</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$paradigms</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getByPartOfSpeech</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'С'</SPAN><SPAN class=br0>)</SPAN> <SPAN class=kw1>as</SPAN> <SPAN class=re0>$paradigm</SPAN><SPAN class=br0>)</SPAN> <SPAN class=br0>{</SPAN>
+    <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=st_h>'Существительное '</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$paradigm</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getBaseForm</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> PHP_EOL;
+<SPAN class=br0>}</SPAN>
+&nbsp;
+<SPAN class=co1>// обрабатываем омонимы</SPAN>
+<SPAN class=kw1>foreach</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$paradigms</SPAN> <SPAN class=kw1>as</SPAN> <SPAN class=re0>$paradigm</SPAN><SPAN class=br0>)</SPAN> <SPAN class=br0>{</SPAN>
+    <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=st_h>'Лемма: '</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$paradigm</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getBaseForm</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> PHP_EOL;
+    <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=st_h>'Все формы: '</SPAN><SPAN class=sy0>,</SPAN> <A href="http://www.php.net/implode"><SPAN class=kw3>implode</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>','</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$paradigm</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getAllForms</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> PHP_EOL;
+&nbsp;
+    <SPAN class=co1>// информация о искомом слове т.к. в парадигме словоформы могут повторятся $found_word - массив</SPAN>
+    <SPAN class=re0>$found_word_ary</SPAN> <SPAN class=sy0>=</SPAN> <SPAN class=re0>$paradigm</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getFoundWordForm</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN>;
+&nbsp;
+    <SPAN class=kw1>foreach</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$found_word_ary</SPAN> <SPAN class=kw1>as</SPAN> <SPAN class=re0>$found_form</SPAN><SPAN class=br0>)</SPAN> <SPAN class=br0>{</SPAN>
+        <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=re0>$found_form</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getWord</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>' - '</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$found_form</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getPartOfSpeech</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>' '</SPAN><SPAN class=sy0>,</SPAN> <A href="http://www.php.net/implode"><SPAN class=kw3>implode</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>','</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$found_form</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getGrammems</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN> <SPAN class=sy0>.</SPAN> PHP_EOL;
+    <SPAN class=br0>}</SPAN>
+&nbsp;
+    <SPAN class=kw1>if</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$paradigm</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>hasGrammems</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'НО'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN> <SPAN class=br0>{</SPAN>
+        <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=st0>"$word - неодушевлённое<SPAN class=es0>\n</SPAN>"</SPAN>;
+    <SPAN class=br0>}</SPAN>
+&nbsp;
+    <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=st_h>'форм в именительном падеже = '</SPAN><SPAN class=sy0>,</SPAN> <A href="http://www.php.net/count"><SPAN class=kw3>count</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$paradigm</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getWordFormsByGrammems</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ИМ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> PHP_EOL;
+&nbsp;
+    <SPAN class=co1>// аналогично используется hasPartOfSpeech, getWordFormsByPartOfSpeech</SPAN>
+&nbsp;
+    <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> PHP_EOL<SPAN class=sy0>,</SPAN> <SPAN class=st_h>'Все формы с грамматической информацией'</SPAN><SPAN class=sy0>,</SPAN> PHP_EOL;
+    <SPAN class=kw1>foreach</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$paradigm</SPAN> <SPAN class=kw1>as</SPAN> <SPAN class=re0>$form</SPAN><SPAN class=br0>)</SPAN> <SPAN class=br0>{</SPAN>
+        <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=re0>$form</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getWord</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>' - '</SPAN>;
+&nbsp;
+        <SPAN class=kw1>if</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$form</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>hasGrammems</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ИМ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN> <SPAN class=br0>{</SPAN> <SPAN class=co1>// есть граммема ИМ?</SPAN>
+            <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=st_h>'именительный'</SPAN>;
+        <SPAN class=br0>}</SPAN> <SPAN class=kw1>else</SPAN> <SPAN class=kw1>if</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$form</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>hasGrammems</SPAN><SPAN class=br0>(</SPAN><A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>'ЕД'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'РД'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN> <SPAN class=br0>{</SPAN> <SPAN class=co1>// у формы должны присутствовать граммемы ЕД и РД</SPAN>
+            <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=st_h>'родительный, единственное число'</SPAN>;
+        <SPAN class=br0>}</SPAN> <SPAN class=kw1>else</SPAN> <SPAN class=br0>{</SPAN>
+            <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=re0>$form</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getPartOfSpeech</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>' '</SPAN><SPAN class=sy0>,</SPAN> <A href="http://www.php.net/implode"><SPAN class=kw3>implode</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>','</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$form</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getGrammems</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+        <SPAN class=br0>}</SPAN>
+&nbsp;
+        <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> PHP_EOL;
+    <SPAN class=br0>}</SPAN>
+&nbsp;
+    <A href="http://www.php.net/echo"><SPAN class=kw3>echo</SPAN></A> <SPAN class=st_h>'---------'</SPAN><SPAN class=sy0>,</SPAN> PHP_EOL;
+<SPAN class=br0>}</SPAN>
+&nbsp;</PRE></DIV>
+<H4><A id=mixed_phpmorphylemmatize_word_type_selfnormal 
+name=mixed_phpmorphylemmatize_word_type_selfnormal>mixed 
+phpMorphy::lemmatize($word, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Возвращает лемму (базовую форму) слова. Из-за присутствия омонимии, результат 
+возвращается в виде массива. Т.е. метод возвращает леммы для всех слов, из 
+которых может быть образована искомая словоформа. </P><PRE class="code php"><A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'КОЛБАСЫ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// array('КОЛБАСА')</SPAN>
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// array('ТЕСТ', 'ТЕСТО')</SPAN>
+<SPAN class=co1>// ТЕСТ отождествляется с формами слов</SPAN>
+<SPAN class=co1>// ТЕСТ – единственное число, именительный, винительный падежи</SPAN>
+<SPAN class=co1>// ТЕСТО – множественное число, родительный падеж</SPAN>
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ГЛОКАЯ'</SPAN><SPAN class=sy0>,</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>IGNORE_PREDICT</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// FALSE</SPAN>
+&nbsp;
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>lemmatize</SPAN><SPAN class=br0>(</SPAN><A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>'КОЛБАСЫ'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'ГЛОКАЯ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>IGNORE_PREDICT</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=co1>// array(</SPAN>
+<SPAN class=co1>//	'КОЛБАСЫ' =&gt; array('КОЛБАСА'),</SPAN>
+<SPAN class=co1>//	'ТЕСТ'    =&gt; array('ТЕСТ', 'ТЕСТО'),</SPAN>
+<SPAN class=co1>//	'ГЛОКАЯ'  =&gt; false</SPAN>
+<SPAN class=co1>// )</SPAN></PRE></DIV>
+<H4><A id=mixed_phpmorphygetbaseform_word_type_selfnormal 
+name=mixed_phpmorphygetbaseform_word_type_selfnormal>mixed 
+phpMorphy::getBaseForm($word, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Это синоним для метода lemmatize </P></DIV>
+<H4><A id=mixed_phpmorphygetallforms_word_type_selfnormal 
+name=mixed_phpmorphygetallforms_word_type_selfnormal>mixed 
+phpMorphy::getAllForms($word, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Возвращает список всех форм (в виде массива) для слова. Если $word 
+отождествляется с формами разных слов, словоформы для каждого слова сливаются в 
+один массив. </P><PRE class="code php"><SPAN class=re0>$result</SPAN> <SPAN class=sy0>=</SPAN> <SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getAllForms</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=co1>// В $result помещаются все формы для слов ТЕСТ и ТЕСТО</SPAN></PRE></DIV>
+<H4><A id=mixed_phpmorphygetpseudoroot_word_type_selfnormal 
+name=mixed_phpmorphygetpseudoroot_word_type_selfnormal>mixed 
+phpMorphy::getPseudoRoot($word, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Возвращает общую часть для всех словоформ заданного слова. Общая часть может 
+быть пустой (к примеру, для слова ДЕТИ). Этот метод не возвращает корень слова в 
+привычном его понимании (только longest common substring для всех словоформ). 
+Всегда возвращает строку (не массив!). </P><PRE class="code php"><A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getPseudoRoot</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// string('ТЕСТ')</SPAN>
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getPseudoRoot</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ДЕТЕЙ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; <SPAN class=co1>// string('')</SPAN></PRE></DIV>
+<H4><A id=mixed_phpmorphygetpartofspeech_word_type_selfnormal 
+name=mixed_phpmorphygetpartofspeech_word_type_selfnormal>mixed 
+phpMorphy::getPartOfSpeech($word, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Возвращает часть речи для заданного слова. Т.к. словоформа может 
+образовываться от нескольких слов, метод возвращает массив. Возвращаемое 
+значение зависит от опции инициализации graminfo_as_text. Если graminfo_as_text 
+= true часть речи представляется в текстовом виде, иначе в виде значения 
+константы. (подробнее см. выше) </P><PRE class="code php"><A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getPartOfSpeech</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;  <SPAN class=co1>// array('С')</SPAN>
+<SPAN class=co1>// ТЕСТ образовывается от ТЕСТ и ТЕСТО, однако оба слова являются существительными</SPAN>
+&nbsp;
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getPartOfSpeech</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ДУША'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;  <SPAN class=co1>// array('С', 'ДЕЕПРИЧАСТИЕ')</SPAN>
+<SPAN class=co1>// ДУША образовывается от ДУШ, ДУША и ДУШИТЬ</SPAN></PRE></DIV>
+<H4><A 
+id=mixed_phpmorphygetallformswithgraminfo_word_astext_true_type_selfnormal 
+name=mixed_phpmorphygetallformswithgraminfo_word_astext_true_type_selfnormal>mixed 
+phpMorphy::getAllFormsWithGramInfo($word, $asText = true, $type = 
+self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Возвращает массив в формате </P><PRE class="code php"><A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN>
+	<SPAN class=co1>// омоним №1</SPAN>
+	<A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN>
+		<SPAN class=st_h>'forms'</SPAN> <SPAN class=sy0>=&gt;</SPAN> <A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN>
+		<SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN>
+		<SPAN class=st_h>'all'</SPAN> <SPAN class=sy0>=&gt;</SPAN> <A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN>
+			массив содержит часть речи и граммемы для каждой формы из <SPAN class=st_h>'forms'</SPAN><SPAN class=sy0>.</SPAN> Граммемы разделены запятой<SPAN class=sy0>.</SPAN> Часть речи отделена от граммем пробелом<SPAN class=sy0>.</SPAN>
+			например<SPAN class=sy0>:</SPAN> ПРИЧАСТИЕ ДСТ<SPAN class=sy0>,</SPAN>ЕД<SPAN class=sy0>,</SPAN>ИМ<SPAN class=sy0>,</SPAN>МР<SPAN class=sy0>,</SPAN>НО<SPAN class=sy0>,</SPAN>НП<SPAN class=sy0>,</SPAN>ОД<SPAN class=sy0>,</SPAN>ПРШ<SPAN class=sy0>,</SPAN>СВ
+		<SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN>
+		<SPAN class=st_h>'common'</SPAN> <SPAN class=sy0>=&gt;</SPAN> строка содержащая общие для всех форм граммемы
+<SPAN class=br0>)</SPAN>
+<SPAN class=br0>)</SPAN></PRE>
+<P>Данный метод рекомендуется использовать только для отладки. Для анализа 
+используйте метод findWord(). Если $asText = true грамматическая информация 
+возвращается в виде строки, как описано выше. Иначе в виде массива </P><PRE class="code php"><A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN>
+    <SPAN class=st_h>'pos'</SPAN> <SPAN class=sy0>=&gt;</SPAN> часть речи<SPAN class=sy0>,</SPAN>
+    <SPAN class=st_h>'grammems'</SPAN> <SPAN class=sy0>=&gt;</SPAN> <A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN>массив граммем<SPAN class=br0>)</SPAN>
+<SPAN class=br0>)</SPAN></PRE><PRE class="code php"><A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getAllFormsWithGramInfo</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>true</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=coMULTI>/*
+Результат:
+array(2) {
+  [0]=&gt;
+  array(3) {
+    ["forms"]=&gt;
+    array(12) {
+      [0]=&gt;
+      string(4) "ТЕСТ"
+      [1]=&gt;
+      string(4) "ТЕСТ"
+      [2]=&gt;
+      string(5) "ТЕСТА"
+      [3]=&gt;
+      string(5) "ТЕСТУ"
+      [4]=&gt;
+      string(6) "ТЕСТОМ"
+      [5]=&gt;
+      string(5) "ТЕСТЕ"
+      [6]=&gt;
+      string(5) "ТЕСТЫ"
+      [7]=&gt;
+      string(5) "ТЕСТЫ"
+      [8]=&gt;
+      string(6) "ТЕСТОВ"
+      [9]=&gt;
+      string(6) "ТЕСТАМ"
+      [10]=&gt;
+      string(7) "ТЕСТАМИ"
+      [11]=&gt;
+      string(6) "ТЕСТАХ"
+    }
+    ["all"]=&gt;
+    array(12) {
+      [0]=&gt;
+      string(13) "С ЕД,ИМ,МР,НО"
+      [1]=&gt;
+      string(13) "С ВН,ЕД,МР,НО"
+      [2]=&gt;
+      string(13) "С ЕД,МР,НО,РД"
+      [3]=&gt;
+      string(13) "С ДТ,ЕД,МР,НО"
+      [4]=&gt;
+      string(13) "С ЕД,МР,НО,ТВ"
+      [5]=&gt;
+      string(13) "С ЕД,МР,НО,ПР"
+      [6]=&gt;
+      string(13) "С ИМ,МН,МР,НО"
+      [7]=&gt;
+      string(13) "С ВН,МН,МР,НО"
+      [8]=&gt;
+      string(13) "С МН,МР,НО,РД"
+      [9]=&gt;
+      string(13) "С ДТ,МН,МР,НО"
+      [10]=&gt;
+      string(13) "С МН,МР,НО,ТВ"
+      [11]=&gt;
+      string(13) "С МН,МР,НО,ПР"
+    }
+    ["common"]=&gt;
+    string(0) ""
+  }
+  [1]=&gt;
+  array(3) {
+    ["forms"]=&gt;
+    array(12) {
+      [0]=&gt;
+      string(5) "ТЕСТО"
+      [1]=&gt;
+      string(5) "ТЕСТО"
+      [2]=&gt;
+      string(5) "ТЕСТА"
+      [3]=&gt;
+      string(5) "ТЕСТА"
+      [4]=&gt;
+      string(5) "ТЕСТА"
+      [5]=&gt;
+      string(5) "ТЕСТУ"
+      [6]=&gt;
+      string(6) "ТЕСТОМ"
+      [7]=&gt;
+      string(5) "ТЕСТЕ"
+      [8]=&gt;
+      string(4) "ТЕСТ"
+      [9]=&gt;
+      string(6) "ТЕСТАМ"
+      [10]=&gt;
+      string(7) "ТЕСТАМИ"
+      [11]=&gt;
+      string(6) "ТЕСТАХ"
+    }
+    ["all"]=&gt;
+    array(12) {
+      [0]=&gt;
+      string(13) "С ЕД,ИМ,НО,СР"
+      [1]=&gt;
+      string(13) "С ВН,ЕД,НО,СР"
+      [2]=&gt;
+      string(13) "С ЕД,НО,РД,СР"
+      [3]=&gt;
+      string(13) "С ИМ,МН,НО,СР"
+      [4]=&gt;
+      string(13) "С ВН,МН,НО,СР"
+      [5]=&gt;
+      string(13) "С ДТ,ЕД,НО,СР"
+      [6]=&gt;
+      string(13) "С ЕД,НО,СР,ТВ"
+      [7]=&gt;
+      string(13) "С ЕД,НО,ПР,СР"
+      [8]=&gt;
+      string(13) "С МН,НО,РД,СР"
+      [9]=&gt;
+      string(13) "С ДТ,МН,НО,СР"
+      [10]=&gt;
+      string(13) "С МН,НО,СР,ТВ"
+      [11]=&gt;
+      string(13) "С МН,НО,ПР,СР"
+    }
+    ["common"]=&gt;
+    string(0) ""
+  }
+}
+*/</SPAN></PRE></DIV>
+<H4><A id=mixed_phpmorphygetallformswithancodes_word_type_selfnormal 
+name=mixed_phpmorphygetallformswithancodes_word_type_selfnormal>mixed 
+phpMorphy::getAllFormsWithAncodes($word, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Вывод похож на getAllFormsWithGramInfo(), но грамматическая информация 
+возвращается в виде анкодов (согласно опции resolve_ancodes). Если 
+resolve_ancodes = phpMorphy::RESOLVE_ANCODES_AS_TEXT вывод аналогичен 
+$morphy→getAllFormsWithGramInfo($word, true). </P><PRE class="code php"><SPAN class=re0>$opts</SPAN> <SPAN class=sy0>=</SPAN> <A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN>
+    <SPAN class=st_h>'resolve_ancode'</SPAN> <SPAN class=sy0>=&gt;</SPAN> phpMorphy<SPAN class=sy0>::</SPAN><SPAN class=me2>RESOLVE_ANCODES_AS_TEXT</SPAN><SPAN class=sy0>,</SPAN>
+    …
+<SPAN class=br0>)</SPAN>;
+&nbsp;
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN> <SPAN class=me1>getAllFormsWithAncodes</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'Я'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+&nbsp;
+<SPAN class=coMULTI>/*
+Результат:
+array(1) {
+  [0]=&gt;
+  array(3) {
+    ["forms"]=&gt;
+    array(7) {
+      [0]=&gt;
+      string(1) "Я"
+      [1]=&gt;
+      string(4) "МЕНЯ"
+      [2]=&gt;
+      string(4) "МЕНЯ"
+      [3]=&gt;
+      string(3) "МНЕ"
+      [4]=&gt;
+      string(3) "МНЕ"
+      [5]=&gt;
+      string(4) "МНОЙ"
+      [6]=&gt;
+      string(4) "МНОЮ"
+    }
+    ["common"]=&gt;
+    NULL
+    ["all"]=&gt;
+    array(7) {
+      [0]=&gt;
+      string(11) "МС 1Л,ЕД,ИМ"
+      [1]=&gt;
+      string(11) "МС 1Л,ЕД,РД"
+      [2]=&gt;
+      string(11) "МС 1Л,ЕД,ВН"
+      [3]=&gt;
+      string(11) "МС 1Л,ЕД,ДТ"
+      [4]=&gt;
+      string(11) "МС 1Л,ЕД,ПР"
+      [5]=&gt;
+      string(11) "МС 1Л,ЕД,ТВ"
+      [6]=&gt;
+      string(11) "МС 1Л,ЕД,ТВ"
+    }
+  }
+}
+*/</SPAN></PRE></DIV>
+<H4><A id=mixed_phpmorphygetancode_word_type_selfnormal 
+name=mixed_phpmorphygetancode_word_type_selfnormal>mixed 
+phpMorphy::getAncode($word, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Возвращает анкоды для слова. </P><PRE class="code php"><A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getAncode</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+&nbsp;
+<SPAN class=coMULTI>/*
+Результат:
+array(2) {
+  [0]=&gt;
+  array(2) {
+    ["common"]=&gt;
+    string(3) " НО"
+    ["all"]=&gt;
+    array(2) {
+      [0]=&gt;
+      string(10) "С МР,ЕД,ИМ"
+      [1]=&gt;
+      string(10) "С МР,ЕД,ВН"
+    }
+  }
+  [1]=&gt;
+  array(2) {
+    ["common"]=&gt;
+    string(3) " НО"
+    ["all"]=&gt;
+    array(1) {
+      [0]=&gt;
+      string(10) "С СР,МН,РД"
+    }
+  }
+}
+*/</SPAN></PRE></DIV>
+<H4><A id=mixed_phpmorphygetgraminfo_word_type_selfnormal 
+name=mixed_phpmorphygetgraminfo_word_type_selfnormal>mixed 
+phpMorphy::getGramInfo($word, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Возвращает грамматическую информацию для слова </P><PRE class="code php"><A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN> <SPAN class=me1>getGramInfo</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+&nbsp;
+<SPAN class=coMULTI>/*
+Результат:
+array(2) {
+  [0]=&gt;
+  array(2) {
+    [0]=&gt;
+    array(3) {
+      ["pos"]=&gt;
+      string(1) "С"
+      ["grammems"]=&gt;
+      array(4) {
+        [0]=&gt;
+        string(2) "ВН"
+        [1]=&gt;
+        string(2) "ЕД"
+        [2]=&gt;
+        string(2) "МР"
+        [3]=&gt;
+        string(2) "НО"
+      }
+      ["form_no"]=&gt;
+      int(0)
+    }
+    [1]=&gt;
+    array(3) {
+      ["pos"]=&gt;
+      string(1) "С"
+      ["grammems"]=&gt;
+      array(4) {
+        [0]=&gt;
+        string(2) "ЕД"
+        [1]=&gt;
+        string(2) "ИМ"
+        [2]=&gt;
+        string(2) "МР"
+        [3]=&gt;
+        string(2) "НО"
+      }
+      ["form_no"]=&gt;
+      int(0)
+    }
+  }
+  [1]=&gt;
+  array(1) {
+    [0]=&gt;
+    array(3) {
+      ["pos"]=&gt;
+      string(1) "С"
+      ["grammems"]=&gt;
+      array(4) {
+        [0]=&gt;
+        string(2) "МН"
+        [1]=&gt;
+        string(2) "НО"
+        [2]=&gt;
+        string(2) "РД"
+        [3]=&gt;
+        string(2) "СР"
+      }
+      ["form_no"]=&gt;
+      int(5)
+    }
+  }
+}
+*/</SPAN></PRE></DIV>
+<H4><A id=mixed_phpmorphygetgraminfomergeforms_word_type_selfnormal 
+name=mixed_phpmorphygetgraminfomergeforms_word_type_selfnormal>mixed 
+phpMorphy::getGramInfoMergeForms($word, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Вывод аналогичен getGramInfo, но если внутри одной парадигмы найдено 
+несколько слов, граммемы сливаются в один массив. </P><PRE class="code php"><A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN> <SPAN class=me1>getGramInfoMergeForms</SPAN> <SPAN class=br0>(</SPAN><SPAN class=st_h>'ТЕСТ'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+&nbsp;
+<SPAN class=coMULTI>/*
+Результат:
+array(2) {
+  [0]=&gt;
+  array(5) {
+    ["pos"]=&gt;
+    string(1) "С"
+    ["grammems"]=&gt;
+    array(5) {
+      [0]=&gt;
+      string(2) "ВН"
+      [1]=&gt;
+      string(2) "ЕД"
+      [2]=&gt;
+      string(2) "ИМ"
+      [3]=&gt;
+      string(2) "МР"
+      [4]=&gt;
+      string(2) "НО"
+    }
+    ["forms_count"]=&gt;
+    int(2)
+    ["form_no_low"]=&gt;
+    int(0)
+    ["form_no_high"]=&gt;
+    int(2)
+  }
+  [1]=&gt;
+  array(5) {
+    ["pos"]=&gt;
+    string(1) "С"
+    ["grammems"]=&gt;
+    array(4) {
+      [0]=&gt;
+      string(2) "МН"
+      [1]=&gt;
+      string(2) "НО"
+      [2]=&gt;
+      string(2) "РД"
+      [3]=&gt;
+      string(2) "СР"
+    }
+    ["forms_count"]=&gt;
+    int(1)
+    ["form_no_low"]=&gt;
+    int(5)
+    ["form_no_high"]=&gt;
+    int(6)
+  }
+}
+*/</SPAN></PRE>
+<P>Обратите внимание, граммемы ИМ и ВН для парадигмы слова ТЕСТ (не ТЕСТО) 
+объединены в один массив, в отличие от getGramInfo(). </P></DIV>
+<H4><A 
+id=mixed_phpmorphycastformbygraminfo_word_partofspeech_grammems_returnonlyword_false_callback_null_type_selfnormal 
+name=mixed_phpmorphycastformbygraminfo_word_partofspeech_grammems_returnonlyword_false_callback_null_type_selfnormal>mixed 
+phpMorphy::castFormByGramInfo($word, $partOfSpeech, $grammems, $returnOnlyWord = 
+false, $callback = null, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Приводит слово в заданную форму. $partOfSpeech – необходим только для 
+прилагательных и глаголов т.к. только для этих частей речи внутри парадигмы 
+встречаются различные части речи. Если $partOfSpeech == null, часть речи не 
+используется. </P><PRE class="code php"><SPAN class=re0>$word</SPAN> <SPAN class=sy0>=</SPAN> <SPAN class=st_h>'ШКАФ'</SPAN>;
+&nbsp;
+<SPAN class=co1>// поставим слово ШКАФ в множественное число, предложный падеж</SPAN>
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>castFormByGramInfo</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$word</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>null</SPAN><SPAN class=sy0>,</SPAN> <A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>'МН'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'ПР'</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>false</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=coMULTI>/*
+Результат:
+array(1) {
+  [0]=&gt;
+  array(4) {
+    ["form"]=&gt;
+    string(6) "ШКАФАХ"
+    ["form_no"]=&gt;
+    int(12)
+    ["pos"]=&gt;
+    string(1) "С"
+    ["grammems"]=&gt;
+    array(4) {
+      [0]=&gt;
+      string(2) "МР"
+      [1]=&gt;
+      string(2) "МН"
+      [2]=&gt;
+      string(2) "ПР"
+      [3]=&gt;
+      string(2) "НО"
+    }
+  }
+}
+*/</SPAN>
+&nbsp;
+<SPAN class=co1>// возвращает только слово, без грамматической информации</SPAN>
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>castFormByGramInfo</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$word</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>null</SPAN><SPAN class=sy0>,</SPAN> <A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>'МН'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'ПР'</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>true</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=coMULTI>/*
+Результат:
+array(1) {
+  [0]=&gt;
+  string(6) "ШКАФАХ"
+}
+*/</SPAN>
+&nbsp;
+<SPAN class=co1>// применим пользовательский фильтр</SPAN>
+<SPAN class=co1>// фильтр – предикат (функция возвращающая true/false) со следующей сигнатурой:</SPAN>
+<SPAN class=co1>// function XXX($form, $partOfSpeech, $grammems, $formNo)</SPAN>
+<SPAN class=co1>// если функция возвращает TRUE, то исходное слово приводится в данную форму</SPAN>
+<SPAN class=co1>// $callback – обычная функция обратного вызова, может принимать значения допустимые для call_user_func(…) т.е. is_callable($callback) === true.</SPAN>
+&nbsp;
+<SPAN class=kw2>function</SPAN> cast_predicate<SPAN class=br0>(</SPAN><SPAN class=re0>$form</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$partOfSpeech</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$grammems</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$formNo</SPAN><SPAN class=br0>)</SPAN> <SPAN class=br0>{</SPAN>
+    <SPAN class=kw1>return</SPAN> <A href="http://www.php.net/in_array"><SPAN class=kw3>in_array</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>'ИМ'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$grammems</SPAN><SPAN class=br0>)</SPAN>; 
+<SPAN class=br0>}</SPAN>
+&nbsp;
+<SPAN class=co1>// приведём ШКАФ в именительный падеж</SPAN>
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>castFormByGramInfo</SPAN><SPAN class=br0>(</SPAN><SPAN class=re0>$word</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>null</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>null</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>true</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'cast_predicate'</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=coMULTI>/*
+Результат:
+array(2) {
+  [0]=&gt;
+  string(4) "ШКАФ"
+  [1]=&gt;
+  string(5) "ШКАФЫ"
+}
+*/</SPAN>
+&nbsp;
+<SPAN class=co1>// выберем краткое прилагательное единственного числа, женского рода.</SPAN>
+<SPAN class=co1>// если не указать часть речи, будут выбраны все прилагательные единственного числа, женского рода</SPAN>
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>castFormByGramInfo</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'КРАСНЫЙ'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'КР_ПРИЛ'</SPAN><SPAN class=sy0>,</SPAN> <A href="http://www.php.net/array"><SPAN class=kw3>array</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=st_h>'ЕД'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'ЖР'</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>true</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=coMULTI>/*
+Результат:
+array(1) {
+  [0]=&gt;
+  string(6) "КРАСНА"
+}
+*/</SPAN>
+&nbsp;</PRE></DIV>
+<H4><A 
+id=mixed_phpmorphycastformbypattern_word_patternword_phpmorphy_grammemsprovider_interface_grammemsprovider_null_returnonlyword_false_callback_null_type_selfnormal 
+name=mixed_phpmorphycastformbypattern_word_patternword_phpmorphy_grammemsprovider_interface_grammemsprovider_null_returnonlyword_false_callback_null_type_selfnormal>mixed 
+phpMorphy::castFormByPattern($word, $patternWord, 
+phpMorphy_GrammemsProvider_Interface $grammemsProvider = null, $returnOnlyWord = 
+false, $callback = null, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Приводит слово $word в форму в которой стоит слово $patternWord </P><PRE class="code php"><A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>castFormByPattern</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ДИВАН'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'СТОЛАМИ'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>null</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>true</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; 
+<SPAN class=coMULTI>/*
+Результат:
+array(1) {
+  [0]=&gt;
+  string(8) "ДИВАНАМИ"
+}
+*/</SPAN>
+&nbsp;</PRE>
+<P>Сложность возникает, если некоторые граммемы у слов не совпадают. Т.к. данная 
+функция ищет в парадигме слова $word форму у которой граммемы совпадают с 
+граммемами $patternWord, то в таких случаях на выходе получим пустой результат. 
+Например, ДИВАН и КРОВАТЬ имеют разный род (мужской и женский соответственно). 
+</P><PRE class="code php"><A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>castFormByPattern</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ДИВАН'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'КРОВАТЯМИ'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>null</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>true</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; 
+<SPAN class=coMULTI>/*
+Результат:
+array(0) {
+}
+*/</SPAN></PRE>
+<P>Нам требуется указать, что род сравнивать не нужно. Можно это сделать 
+следующим способом </P><PRE class="code php"><SPAN class=re0>$provider</SPAN> <SPAN class=sy0>=</SPAN> <SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getGrammemsProvider</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=re0>$provider</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>excludeGroups</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'С'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'род'</SPAN><SPAN class=br0>)</SPAN>;
+<SPAN class=coMULTI>/*
+указываем, что для существительных род сравнивать не будем.
+&nbsp;
+Первым параметром указывается часть речи, для которой требуется внести изменения
+Вторым - группу граммем, которую необходимо исключить, может принимать следующие значения:
+1)	род
+2)	одушевленность 
+3)	число 
+4)	падеж 
+5)	залог 
+6)	время 
+7)	повелительная форма 
+8)	лицо
+9)	сравнительная форма 
+10)	превосходная степень
+11)	вид
+12)	переходность
+13)	безличный глагол
+&nbsp;
+следует помнить, что все данные должны быть в кодировке словаря
+*/</SPAN>
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>castFormByPattern</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ДИВАН'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'КРОВАТЯМИ'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$provider</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>true</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; 
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>castFormByPattern</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'КРЕСЛО'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'СТУЛЬЯМИ'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=re0>$provider</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>true</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; 
+<SPAN class=coMULTI>/*
+Результат:
+array(1) {
+  [0]=&gt;
+  string(8) "ДИВАНАМИ"
+}
+*/</SPAN> 
+&nbsp;
+<SPAN class=coMULTI>/*
+Чтобы не передавать $provider каждый раз, можно сделать изменения глобально
+*/</SPAN>
+<SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>getDefaultGrammemsProvider</SPAN><SPAN class=br0>(</SPAN><SPAN class=br0>)</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>excludeGroups</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'С'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'род'</SPAN><SPAN class=br0>)</SPAN>;
+<A href="http://www.php.net/var_dump"><SPAN class=kw3>var_dump</SPAN></A><SPAN class=br0>(</SPAN><SPAN class=re0>$morphy</SPAN><SPAN class=sy0>-&gt;</SPAN><SPAN class=me1>castFormByPattern</SPAN><SPAN class=br0>(</SPAN><SPAN class=st_h>'ДИВАН'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=st_h>'КРОВАТЯМИ'</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>null</SPAN><SPAN class=sy0>,</SPAN> <SPAN class=kw2>true</SPAN><SPAN class=br0>)</SPAN><SPAN class=br0>)</SPAN>; 
+&nbsp;</PRE></DIV>
+<H4><A 
+id=mixed_phpmorphycastformbyancode_word_ancode_commonancode_null_returnonlyword_false_callback_null_type_selfnormal 
+name=mixed_phpmorphycastformbyancode_word_ancode_commonancode_null_returnonlyword_false_callback_null_type_selfnormal>mixed 
+phpMorphy::castFormByAncode($word, $ancode, $commonAncode = null, 
+$returnOnlyWord = false, $callback = null, $type = self::NORMAL)</A></H4>
+<DIV class=level4>
+<P>Аналогично castFormByGramInfo, но грамматическая информация указывается в 
+виде анкода (согласно опции resolve_ancodes). 
+</P></DIV><!-- wikipage stop --></DIV>
+<DIV class=clearer></DIV>
+<DIV class=stylefoot>
+<DIV class=meta>
+<DIV class=user></DIV>
+<DIV class=doc>manual.txt · Последние изменения: 2010/01/14 12:08 От heromantor 
+</DIV></DIV>
+<DIV id=bar__bottom class=bar>
+<DIV id=bar__bottomleft class=bar-left></DIV>
+<DIV id=bar__bottomright class=bar-right>
+<FORM class="button btn_login" method=get action=/dokuwiki/manual>
+<DIV class=no><INPUT value=login type=hidden name=do><INPUT 
+value=39d2bdea09064a226087fb55a883a39a type=hidden name=sectok><INPUT class=button title=Войти value=Войти type=submit></DIV></FORM>
+<FORM class="button btn_index" method=get action=/dokuwiki/manual>
+<DIV class=no><INPUT value=index type=hidden name=do><INPUT accessKey=x class=button title="Все страницы [X]" value="Все страницы" type=submit></DIV></FORM><A 
+class=nolink 
+href="http://phpmorphy.sourceforge.net/dokuwiki/manual#dokuwiki__top"><INPUT class=button title=Наверх onclick="window.scrollTo(0, 0)" value=Наверх type=button></A>&nbsp; 
+</DIV>
+<DIV class=clearer></DIV></DIV></DIV>
+<DIV class=license>За исключением случаев, когда указано иное, содержимое этой 
+вики предоставляется на условиях следующей лицензии:<A class=urlextern 
+href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel=license>CC 
+Attribution-Noncommercial-Share Alike 3.0 Unported</A></DIV></DIV>
+<DIV class=footerinc><!-- SF logo --><A 
+href="http://sourceforge.net/projects/phpmorphy"><IMG 
+alt="Get phpMorphy at SourceForge.net. Fast, secure and Free Open Source software downloads" 
+src="manual%20[phpMorphy%20home]_files/sflogo.gif" width=80 height=15></A> <A 
+title="Recent changes RSS feed" 
+href="http://phpmorphy.sourceforge.net/dokuwiki/feed.php"><IMG 
+alt="Recent changes RSS feed" 
+src="manual%20[phpMorphy%20home]_files/button-rss.png" width=80 height=15></A> 
+<A title="CC Attribution-Noncommercial-Share Alike 3.0 Unported" 
+href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel=license><IMG alt="" 
+src="manual%20[phpMorphy%20home]_files/cc-by-nc-sa.png" width=80 height=15></A> 
+<A title=Donate href="http://www.dokuwiki.org/donate"><IMG alt=Donate 
+src="manual%20[phpMorphy%20home]_files/button-donate.gif" width=80 
+height=15></A> <A title="Powered by PHP" href="http://www.php.net/"><IMG 
+alt="Powered by PHP" src="manual%20[phpMorphy%20home]_files/button-php.gif" 
+width=80 height=15></A> <A title="Valid XHTML 1.0" 
+href="http://validator.w3.org/check/referer"><IMG alt="Valid XHTML 1.0" 
+src="manual%20[phpMorphy%20home]_files/button-xhtml.png" width=80 height=15></A> 
+<A title="Valid CSS" 
+href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3"><IMG 
+alt="Valid CSS" src="manual%20[phpMorphy%20home]_files/button-css.png" width=80 
+height=15></A> <A title="Driven by DokuWiki" href="http://dokuwiki.org/"><IMG 
+alt="Driven by DokuWiki" src="manual%20[phpMorphy%20home]_files/button-dw.png" 
+width=80 height=15></A> </DIV>
+<DIV class=no><IMG alt="" src="" width=1 height=1></DIV></BODY></HTML>
