@@ -118,6 +118,7 @@ $outputPhrase7 = iconv("CP1251", "UTF-8//IGNORE", $outputPhrase7);
         <input name=\"header_navigation\" value=\"$header_navigation_post\" type=\"hidden\">        
         <input name=\"flesch\" value=\"$Flesch\" type=\"hidden\">
         <input name=\"educationlevel\" value=\"$educationLevel\" type=\"hidden\">
+        <input name=\"quality\" value=\"$textQuality\" type=\"hidden\">
         <input type=\"submit\" value=\"$outputPhrase5\"></form>");
         
         echo("<br />");

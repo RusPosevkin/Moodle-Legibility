@@ -47,6 +47,9 @@ $fleschfield = 'flesch';
 //название пол€ таблицы - уровень образовани€ 
 $edulevelfield = 'edulevel';
 
+//название пол€ таблицы - качество материала 
+$qualityfield = 'quality';
+
 //здесь задаем id ресурса, с которым работаем
 $idstring = $resourceID;
 
@@ -59,14 +62,15 @@ $idstring = $resourceID;
 $sqlStringSelect = "SELECT $sentencesfield from $prefix".$tablename." WHERE $idfield=$idstring";
 $sqlStringSelect2 = "SELECT $fleschfield from $prefix".$tablename." WHERE $idfield=$idstring";
 $sqlStringSelect3 = "SELECT $edulevelfield from $prefix".$tablename." WHERE $idfield=$idstring";
-
+$sqlStringSelect4 = "SELECT $qualityfield from $prefix".$tablename." WHERE $idfield=$idstring";
   
 //в переменной хранитс€ статус, существует ли
 //запись с идентификатором $idstring
 $isExist = record_exists_sql($sqlStringSelect);
 $isExist2 = record_exists_sql($sqlStringSelect2);
 $isExist3 = record_exists_sql($sqlStringSelect3);
-
+$isExist4 = record_exists_sql($sqlStringSelect4);
+ 
 //если записей c данным идентификатором нет, 
 //то добавл€ем запись
 if( $isExist === false  )
@@ -116,6 +120,22 @@ else
     execute_sql($sqlstring2,false);
 }
 
+//если записей c данным идентификатором нет, 
+//то добавл€ем запись
+if( $isExist4 === false  )
+{
+    //SQL-запрос на добавление информации в таблицу - качество материала
+    $sqlstring2 = "INSERT INTO ".$prefix."$tablename ($idfield, $qualityfield) VALUES ('".$idstring."', '".$textQuality."')";
+    execute_sql($sqlstring2,false);
+}
+//если есть, то обновл€ем запись
+else
+{
+    //SQL-запрос на добавление информации в таблицу - качество материала
+    $sqlstring2 = "UPDATE ".$prefix."$tablename SET $qualityfield='$textQuality' WHERE $idfield=$idstring";
+    execute_sql($sqlstring2,false);
+}
+
 
 
 
@@ -148,7 +168,7 @@ else
 
 
 
-
+  
 
 //¬ыводим ключевые слова на страницу
 echo(iconv('windows-1251', "UTF-8", "<h2> лючевые слова:</h2>"));
@@ -174,11 +194,17 @@ echo("<h1>$Flesch</h1>");
 echo(iconv('windows-1251', "UTF-8", " <br /><h2>”ровень образовани€:</h2>"));
 echo("<h1>$educationLevel</h1>");
 
+//¬ыводим качественную характеристику учебно-методического материала
+echo(iconv('windows-1251', "UTF-8", " <br /><h2>”ровень сложности материала:</h2>"));
+echo("<h1>$textQuality</h1>");
+
+
+
 //кнопка "вернутьс€ к лекции"
 $phrase1 = '¬ернутьс€ к лекции';
 $phrase1 = iconv("CP1251", "UTF-8//IGNORE", $phrase1);
 echo("<br /><br /><input type='button' onclick=\"document.location='$lectionlink'\" value=\"$phrase1\">");
 
-
+             
 
 ?>

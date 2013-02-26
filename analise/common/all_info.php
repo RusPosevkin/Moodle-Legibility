@@ -8,6 +8,7 @@ $resourceID = isset($_POST['resourceID']) ? $_POST['resourceID'] : false;
 //получаем количественные характеристики текста
 $Flesch = isset($_POST['flesch']) ? $_POST['flesch'] : false;
 $educationLevel = isset($_POST['educationlevel']) ? $_POST['educationlevel'] : false;
+$textQuality = isset($_POST['quality']) ? $_POST['quality'] : false;
 
 // получаем параметры из header.html
 $header_direction_post = isset($_POST['header_direction']) ? $_POST['header_direction'] : false;  

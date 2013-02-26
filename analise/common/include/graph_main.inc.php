@@ -42,8 +42,8 @@ if ( ($yes) && ($resourceID) )
     </tr>
     <tr>
     <form action=\"keyWords_main.php\" method=\"post\">
-    <td width=\"400\" align=\"center\"><input type=\"text\" size=\"1\" maxlength=\"3\" value=\"45\" name=\"first\"></td>
-    <td width=\"400\" align=\"center\"><input type=\"text\" size=\"1\" maxlength=\"3\" value=\"55\" name=\"last\"></td>
+    <td width=\"400\" align=\"center\"><input type=\"text\" size=\"1\" maxlength=\"3\" value=\"0\" name=\"first\"></td>
+    <td width=\"400\" align=\"center\"><input type=\"text\" size=\"1\" maxlength=\"3\" value=\"30\" name=\"last\"></td>
     <td width=\"400\">
     <input name=\"analise\" value=\"yes\" type=\"hidden\">
     <input type=\"hidden\" name=\"resourceID\" value=\"$resourceID\"> 

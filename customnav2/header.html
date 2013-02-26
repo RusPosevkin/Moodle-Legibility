@@ -278,6 +278,8 @@ if ( ((substr_count($_SERVER['REQUEST_URI'], $pattern)) !== 0) && (has_capabilit
 		$fleschfield = 'flesch';
 		//название поля таблицы - уровень образования 
 		$edulevelfield = 'edulevel';
+		//название поля таблицы - качество материала 
+		$qualityfield = 'quality';
 		
 		//составляем SQL-запрос для выборки всех данных 
 		//для ресурса с идентификатором текущего материала
@@ -285,6 +287,7 @@ if ( ((substr_count($_SERVER['REQUEST_URI'], $pattern)) !== 0) && (has_capabilit
 		$sqlStringSelect2 = "SELECT $sentencesfield from $prefix".$tablename." WHERE $idfield=$outputResource";
 		$sqlStringSelect3 = "SELECT $fleschfield from $prefix".$tablename." WHERE $idfield=$outputResource";
 		$sqlStringSelect4 = "SELECT $edulevelfield from $prefix".$tablename." WHERE $idfield=$outputResource";
+		$sqlStringSelect5 = "SELECT $qualityfield from $prefix".$tablename." WHERE $idfield=$outputResource";
 		//в переменной хранится статус, существует ли
 		//запись с ключевыми словами для лекции с данным идентификатором 
 		$isExistWords = record_exists_sql($sqlStringSelect);
@@ -353,6 +356,27 @@ if ( ((substr_count($_SERVER['REQUEST_URI'], $pattern)) !== 0) && (has_capabilit
 			//выбираем строку с данными из полученного объекта
 			$keyWordsList = $keyWordsList->$edulevelfield; 
 			$phrase1 = '<h2> Уровень образования:  ';
+			$phrase1 = iconv("CP1251", "UTF-8//IGNORE", $phrase1);
+			echo("$phrase1");
+			//выводим ключевые предложения, без последнего символа 
+			echo substr($keyWordsList, 0, strlen($keyWordsList));
+			echo("</h2>");
+		}
+		
+		
+		
+		//в переменной хранится статус, существует ли
+		//запись с уровнем образования для лекции с данным идентификатором 
+		$isExist = record_exists_sql($sqlStringSelect5);
+		//если для данной лекции есть ключевые слова в БД
+		//то выводим их перед текстом лекции
+		if( $isExist === true  )
+		{
+			//выбираем из БД значения из поля, содержащего ключевые слова
+			$keyWordsList = get_record_sql($sqlStringSelect5,true,true);
+			//выбираем строку с данными из полученного объекта
+			$keyWordsList = $keyWordsList->$qualityfield; 
+			$phrase1 = '<h2> Уровень сложности материала:  ';
 			$phrase1 = iconv("CP1251", "UTF-8//IGNORE", $phrase1);
 			echo("$phrase1");
 			//выводим ключевые предложения, без последнего символа 

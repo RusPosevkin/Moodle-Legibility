@@ -23,6 +23,9 @@ $fleschfield = 'flesch';
 //название поля таблицы - уровень образования 
 $edulevelfield = 'edulevel';
 
+//название поля таблицы - качество материала 
+$qualityfield = 'quality';
+
 //здесь задаем id ресурса, с которым работаем
 $idstring = $resourceID;
 
@@ -31,7 +34,7 @@ $idstring = $resourceID;
 
 //SQL-запрос на создание таблицы
 //создание таблицы осуществляется в том случае, если он не была создана ранее
-$sqlstring = "CREATE TABLE IF NOT EXISTS ".$prefix."$tablename ($idfield INT NOT NULL,$wordsfield LONGTEXT,$sentencesfield LONGTEXT,$fleschfield FLOAT,$edulevelfield FLOAT)";
+$sqlstring = "CREATE TABLE IF NOT EXISTS ".$prefix."$tablename ($idfield INT NOT NULL,$wordsfield LONGTEXT,$sentencesfield LONGTEXT,$fleschfield FLOAT,$edulevelfield FLOAT,$qualityfield TEXT)";
 execute_sql($sqlstring,false);
 
 
